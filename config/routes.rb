@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :links
+  get 'links_connects/new'
+  resources :links, :links_connects
   devise_for :users
   
   root to: 'hello_world#hello'

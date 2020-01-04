@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_31_045145) do
+ActiveRecord::Schema.define(version: 2020_01_03_131709) do
+
+  create_table "link_connects", force: :cascade do |t|
+    t.integer "super_id"
+    t.integer "sub_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "linkconnects", force: :cascade do |t|
+    t.integer "super_id"
+    t.integer "sub_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "links", force: :cascade do |t|
     t.text "url"

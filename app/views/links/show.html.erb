@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>id:</strong>
+  <%= @link.id %>
+</p>
 
 <p>
   <strong>Url:</strong>
@@ -32,3 +36,5 @@
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>
+<%= link_to "親の追加", new_link_path(sub_id: @link.id)%>
+<%= link_to "子の追加", new_link_path(super_id: @link.id)%>

@@ -16,6 +16,11 @@ class LinksController < ApplicationController
   # GET /links/new
   def new
     @link = Link.new
+    @last_id = Link.last.id
+    @last_id += 1
+    #親・子追加時使用
+    @super_id = params[:super_id]
+    @sub_id = params[:sub_id]
   end
 
   # GET /links/1/edit
@@ -26,9 +31,12 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
     @link = Link.new(link_params)
-
+    @linkconnect = Linkconnect.new(
+        super_id: params[:link][:super_id],
+        sub_id: params[:link][:sub_id]
+      )
     respond_to do |format|
-      if @link.save
+      if @link.save && @linkconnect.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else
