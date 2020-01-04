@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'links_connects/new'
+  resources :links, :links_connects
+  devise_for :users
+  
+  root to: 'hello_world#hello'
 end

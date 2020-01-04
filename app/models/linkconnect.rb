@@ -1,0 +1,2 @@
+class Linkconnect < ApplicationRecord
+end

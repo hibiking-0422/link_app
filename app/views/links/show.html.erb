@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>id:</strong>
+  <%= @link.id %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @link.url %>
+</p>
+
+<p>
+  <strong>Link name:</strong>
+  <%= @link.link_name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @link.comment %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @link.user_id %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @link.genre_id %>
+</p>
+
+<p>
+  <strong>Private flag:</strong>
+  <%= @link.private_flag %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
+<%= link_to "親の追加", new_link_path(sub_id: @link.id)%>
+<%= link_to "子の追加", new_link_path(super_id: @link.id)%>

@@ -1,0 +1,58 @@
+<%= form_with(model: link, local: true) do |form| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  <% if @super_id.present? %>
+  <p>子の追加</p>
+    <%= form.hidden_field :super_id, :value => @super_id %>
+    <%= form.hidden_field :sub_id, :value => @last_id %>
+  <% end %>
+  
+  <% if @sub_id.present? %>
+  <p>親の追加</p>
+    <%= form.hidden_field :sub_id, :value => @sub_id %>
+    <%= form.hidden_field :super_id, :value => @last_id %>
+
+  <% end %>
+  
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_area :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_name %>
+    <%= form.text_area :link_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre_id %>
+    <%= form.number_field :genre_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :private_flag %>
+    <%= form.check_box :private_flag %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
