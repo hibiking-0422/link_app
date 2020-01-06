@@ -16,8 +16,11 @@ class LinksController < ApplicationController
   # GET /links/new
   def new
     @link = Link.new
-    @last_id = Link.last.id
-    @last_id += 1
+
+    if Link.last.present?
+      @last_id = Link.last.id
+      @last_id += 1
+    end
     #親・子追加時使用
     @super_id = params[:super_id]
     @sub_id = params[:sub_id]
