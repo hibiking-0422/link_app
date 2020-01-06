@@ -4,7 +4,7 @@
 bash <(curl -s https://raw.githubusercontent.com/hibiking-0422/docker_install/master/golang_install.sh)
  
 #link_app install (とりあえず/var以下に配置)
-cd　/var
+cd /var
 git clone https://github.com/hibiking-0422/link_app.git
 
 cd link_app
