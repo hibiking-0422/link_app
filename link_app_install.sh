@@ -13,6 +13,8 @@ cd link_app
 docker-compose build
 docker-compose up -d
 
+sleep 10s
+
 #create database
 docker-compose exec app rails db:create
 docker-compose exec app rails db:migrate
