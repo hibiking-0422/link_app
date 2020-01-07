@@ -69,3 +69,5 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'mysql2'
+
+gem 'webpacker', github: 'rails/webpacker'
