@@ -19,6 +19,9 @@ docker-compose run app rails webpacker:install
 docker-compose run app rails webpacker:install:vue
 docker-compose run app bin/webpack
 
+#re-bundle install
+docker-compose run app bundle install
+
 #create database
 docker-compose exec app rails db:create
 docker-compose exec app rails db:migrate
