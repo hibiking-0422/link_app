@@ -11,13 +11,8 @@ cd link_app
 
 #build & up
 docker-compose build
-dockeer-compose run app bundle install
 docker-compose up -d --build
 
 #create database
 docker-compose exec app rails db:create
 docker-compose exec app rails db:migrate
-
-#webpacker install
-docker-compose run app rails webpacker:install
-docker-compose run app rails webpacker:install:vue
