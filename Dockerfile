@@ -23,8 +23,9 @@ ADD Gemfile.lock /webapp/Gemfile.lock
 
 # bundle installの実行
 RUN bundle install
-RUN webpacker:install
-RUN webpacker:install:vue
+RUN rails webpacker:install
+RUN rails webpacker:install:vue
+RUN bin/webpack
 
 # ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
 ADD . /webapp
