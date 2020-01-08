@@ -13,6 +13,12 @@ cd link_app
 docker-compose build
 docker-compose up -d --build
 
+#webpacker install
+docker-compose run app bundle install
+docker-compose run app webpacker:install
+docker-compose run app webpacker:install:vue
+docker-compose run app bin/webpack
+
 #create database
 docker-compose exec app rails db:create
 docker-compose exec app rails db:migrate
