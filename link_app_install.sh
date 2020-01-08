@@ -21,5 +21,5 @@ docker-compose run app bin/webpack
 
 
 #create database
-docker-compose exec app rails db:create
-docker-compose exec app rails db:migrate
+docker-compose run app rails db:create
+docker-compose run app rails db:migrate
