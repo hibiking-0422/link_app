@@ -23,3 +23,7 @@ docker-compose run app bin/webpack
 #create database
 docker-compose run app rails db:create
 docker-compose run app rails db:migrate
+
+#re_docker-compose
+docker-compose down
+docker-compose up -d
