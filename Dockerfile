@@ -23,6 +23,8 @@ ADD Gemfile.lock /webapp/Gemfile.lock
 
 # bundle installの実行
 RUN bundle install
+RUN webpacker:install
+RUN webpacker:install:vue
 
 # ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
 ADD . /webapp
