@@ -21,14 +21,16 @@ WORKDIR /webapp
 ADD Gemfile /webapp/Gemfile
 ADD Gemfile.lock /webapp/Gemfile.lock
 
+# ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
+ADD . /webapp
+
 # bundle installの実行
 RUN bundle install
 RUN rails webpacker:install
 RUN rails webpacker:install:vue
 RUN bin/webpack
 
-# ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
-ADD . /webapp
+
 
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets
